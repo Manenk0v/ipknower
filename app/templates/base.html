@@ -1,0 +1,133 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+	{% if title %}
+		{{ title }}
+	{% else %}
+		Basic Flask project
+	{% endif %}
+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{{ url_for('index') }}">Basic Flask project</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ url_for('index') }}">Basic Flask project</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Доп. инфо<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="{# {{ url_for('help') }} #}">Справка</a></li>
+							<li><a href="{# {{ url_for('agreement') }} #}">Пользовательское соглашение</a></li>
+							<li><a href="{# {{ url_for('privacy_policy') }} #}">Политика конфеденциальности</a></li>
+							<li class="divider"></li>
+							<li><a href="#">Ссылка по другой тематике</a></li>
+							<li class="divider"></li>
+							<li><a href="#">Еще один из подразделов</a></li>
+						</ul>
+					</li>
+                    <li><a href="{# {{ url_for('about') }} #}">О сайте</a></li>
+					<li><a href="#">Контакты</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Войти</a></li>
+					<li><a href="#">Зарегистрироваться</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block content %}
+	<div class="wrapper">
+		<div class="container">
+			<div class="content">
+			{% block app_content %}
+
+			{% endblock %}
+			</div>
+		</div>
+
+		{% block footer %}
+			<footer>
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-4">
+							<div class="widget">
+								<h5 class="widgetheading">Контакты</h5>
+								<ul class="link-list">
+									<li><a class="tn-atom" href="http://viber.itgen.io/" target="_blank">Viber</a></li>
+									<li><a class="tn-atom" href="https://t.me/itgenio_bot" target="_blank">Telegram</a></li>
+									<li><a href="mailto:itgenik@itgen.io">itgenik@itgen.io</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div class="widget">
+								<h5 class="widgetheading">Полезные ссылки</h5>
+								<ul class="link-list">
+									<li><a target="_blank" href="{# {{ url_for('help') }} #}">Справка</a></li>
+									<li><a target="_blank" href="{# {{ url_for('agreement') }} #}">Пользовательское соглашение</a></li>
+									<li><a target="_blank" href="{# {{ url_for('privacy_policy') }} #}">Политика конфеденциальности</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div class="widget">
+								<h5 class="widgetheading">Направления</h5>
+								<ul class="link-list">
+									<li><a href="#" target="_blank">Python</a></li>
+									<li><a href="#" target="_blank">Web-design</a></li>
+									<li><a href="#" target="_blank">Flask</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="sub-footer">
+						<div class="container">
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="copyright">
+										<p>
+											<span>&copy; Basic Flask project 2020. Все права защищены. </span><br/>Разработчик: ООО "Айтигенио".
+										</p>
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<ul class="social-network">
+										<li><a href="https://www.facebook.com/ITGEN.IO" data-placement="top" title="Facebook" target="_blank"><i class="fa fa-facebook"></i></a></li>
+										<li><a href="https://vk.com/itgenio" data-placement="top" title="Vk" target="_blank"><i class="fa fa-vk"></i></a></li>
+										<li><a href="https://www.youtube.com/c/itgenerationschool" data-placement="top" title="Youtube" target="_blank"><i class="fa fa-youtube"></i></a></li>
+										<li><a href="https://www.instagram.com/itgen.io/" data-placement="top" title="Instagram" target="_blank"><i class="fa fa-instagram"></i></a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+			</footer>
+		{% endblock %}
+	</div>
+{% endblock %}
+
+
+
+{% block scripts %}
+	<link href="{{ url_for("static", filename="css/style.css") }}" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+{% endblock %}
+

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Article</title>
+ </head>
+ <body style="
+  {% if session['font']  %}
+   font-family:{{ session['font'] }};
+  {% endif %}
+  {% if session['color'] %}
+   color:{{ session['color'] }};
+  {% endif %}
+  {% if session['background'] %}
+   background:{{ session['background'] }}
+  {% endif %}">
+  Select Font Preference: <br>
+  <form action="" method="post">
+   <select name="font" onchange="submit()">
+    <option value="">----</option>
+    <option value="consolas">
+     {% if session['font'] == 'consolas' %}
+      selected
+     {% endif %}
+     consolas</option>
+    <option value="arial">
+     {% if session['font'] == 'arial' %}
+      selected
+     {% endif %}
+     arial</option>
+    <option value="verdana">
+     {% if session['font'] == 'verdana' %}
+      selected
+     {% endif %}
+     verdana</option>
+   </select>
+	  <select name="background">
+    <option value="">----</option>
+    <option value="red">
+     {% if session['background'] == 'red' %}
+      selected
+     {% endif %}
+     red</option>
+    <option value="blue">
+     {% if session['background'] == 'blue' %}
+      selected
+     {% endif %}
+     blue</option>
+    <option value="green">
+     {% if session['background'] == 'green' %}
+      selected
+     {% endif %}
+     green</option>
+   </select>
+	  <select name="color">
+    <option value="">----</option>
+    <option value="red">
+     {% if session['color'] == 'red' %}
+      selected
+     {% endif %}
+     red</option>
+    <option value="blue">
+     {% if session['color'] == 'blue' %}
+      selected
+     {% endif %}
+     blue</option>
+    <option value="green">
+     {% if session['color'] == 'green' %}
+      selected
+     {% endif %}
+     green</option>
+   </select>
+  </form>
+
+  <h1>Заголовок.</h1>
+  <p>Текст</p>
+<!--  <script>-->
+<!--  document.cookie = "foo=bar;";-->
+<!--  if (!document.cookie)-->
+<!--  {-->
+<!--   alert("This website requires cookies to function properly");-->
+<!--  }-->
+<!-- </script>-->
+<!-- </body>-->
+<!-- <script>-->
+<!--  document.cookie = "foo=bar;";-->
+<!--  if (!document.cookie)-->
+<!--  {-->
+<!--   alert("This website requires cookies to function properly");-->
+<!--  }-->
+<!-- </script>-->
+</html>
